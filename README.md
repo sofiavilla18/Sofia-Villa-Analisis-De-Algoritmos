@@ -1,8 +1,10 @@
 # Curso de Análisis de Algoritmos 2026-1
 
-## Estudiante: Sofia Villa Muñoz
-## Facultad: Ingenierias
-## Docente: Santiago Suarez Cortes
+## Autor
+
+### Estudiante: Sofia Villa Muñoz
+### Facultad: Ingenierias
+### Docente: Santiago Suarez Cortes
 
 En este repositorio se visualizará el avance del estudiante a lo largo del curso, junto con el desarrollo de las actividades realizadas durante el semestre.
 
@@ -26,3 +28,4 @@ git push origin main
 git fetch origin 
 git pull origin main  
 ```
+
