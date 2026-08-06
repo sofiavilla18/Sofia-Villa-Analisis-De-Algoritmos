@@ -3,6 +3,7 @@
 ## Autor
 
 ### Estudiante: Sofia Villa Muñoz
+### Correo: sofiavilla1116583@correo.itm.edu.co
 ### Facultad: Ingenierias
 ### Docente: Santiago Suarez Cortes
 
