@@ -15,3 +15,23 @@ def insertion_sort(datos: list[int]) -> tuple[list[int], int]:
     """
     # TODO: implemente el algoritmo contando cada comparacion
     # entre dos elementos de la lista.
+    
+    arreglo = datos.copy()
+    comparaciones = 0
+
+    for i in range(1, len(arreglo)):
+        clave = arreglo[i]
+        j = i - 1
+
+        while j >= 0:
+            comparaciones += 1
+
+            if arreglo[j] <= clave:
+                break
+
+            arreglo[j + 1] = arreglo[j]
+            j -= 1
+
+        arreglo[j + 1] = clave
+
+    return arreglo, comparaciones
