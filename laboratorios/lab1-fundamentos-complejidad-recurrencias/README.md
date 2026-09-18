@@ -23,6 +23,10 @@ Lo anterior plantea una tensión fundamental en la plataforma Tamiza, ya que el 
 
 ## Parte 3
 
+### Algoritmo insertion sort: [algoritmos.py](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/algoritmos.py)
+### Logíca implementada: [datos.py](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/datos.py)
+### Datos utilizados: [parte3_casos.py](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/parte3_casos.py)
+
 ## Parte 3.1 Explicación 
 Para esta sección, se dará una breve explicación de los casos posibles, además de la elección de uno de estos para el caso en el que el algoritmo de Tamiza entra en producción. 
 
@@ -41,6 +45,18 @@ El caso de análisis que representa cada escenario de Tamiza para insertion sort
 - Escenario B: Representa la situación en la que la mayor parte de los registros conserva el orden de la lista del día anterior y solamente se agregan nuevos registros al final. Debido a que insertion sort funciona de manera favorable cuando los datos se encuentran ordenados o casi ordenados, se espera que este sea el escenario mas favorable de los tres y que requiera menos comparaciones y desplazamientos.
 
 - Escenario C: Representa el caso en que los registros están ordenados exactamente al contrario del orden que Tamiza necesita para generar la lista de llamadas. En esta situación, los elementos deben desplazarse a través de gran parte de los elementos que ya se encuentran ordenados, por lo que se espera la mayor cantidad de comparaciones y desplazamientos. Por esta razón, se predice que este escenario corresponde al peor caso.
+
+## Parte 3.2  Demostración experimental
+
+Luego de realizar la demostración experimental, los resultados obtenidos fueron los siguientes: el escenario C fue el peor caso, ya que presentó el mayor número de comparaciones, con 20.476.800, y el mayor tiempo de ejecución, con 1.559084 s, para un n = 6400. Además, se observó que tanto el número de comparaciones como el tiempo de ejecución aumentaron a medida que crecía el tamaño de la entrada. Para el escenario B, este fue el mejor de los tres, puesto que obtuvo considerablemente menos comparaciones, con 813.455, y un menor tiempo de ejecución de 0.076926 s para n = 6400. Finalmente, el escenario A presentó un comportamiento intermedio, aproximándose al caso promedio, con 10.276.753 comparaciones y un tiempo de ejecución de 0.827344 s.
+
+Estos resultados experimentales coinciden con las predicciones realizadas, donde se esperaba que el escenario B fuera el más favorable, el escenario A representara un comportamiento promedio y el escenario C correspondiera al peor caso.
+
+### Gráfica: Comparaciones vs Tamaño de Entrada
+![image alt](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/graficas/parte3_comparaciones.png)
+
+### Gráfica: Tiempo vs Tamaño de Entrada
+![image alt](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/graficas/parte3_tiempos.png)
 
 
 
