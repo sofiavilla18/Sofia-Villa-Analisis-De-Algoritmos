@@ -1,5 +1,5 @@
 """Generadores de lotes de registros para los escenarios de Tamiza."""
- 
+import random
  
 def generar_aleatorio(n: int, semilla: int = 42) -> list[int]:
     """Genera un lote de n registros en orden aleatorio (escenario A).
@@ -13,6 +13,11 @@ def generar_aleatorio(n: int, semilla: int = 42) -> list[int]:
         Lista de n indices de riesgo enteros distintos, desordenada.
     """
     # TODO: implemente el escenario A.
+    rng = random.Random(semilla)
+    datos = list(range(1, n + 1))
+    rng.shuffle(datos)
+    return datos
+
  
  
 def generar_casi_ordenado(n: int, semilla: int = 42) -> list[int]:
@@ -28,6 +33,18 @@ def generar_casi_ordenado(n: int, semilla: int = 42) -> list[int]:
         desordenado al final.
     """
     # TODO: implemente el escenario B.
+    rng = random.Random(semilla)
+
+    cantidad_ordenada = int(n * 0.98)
+    datos = list(range(1, n + 1))
+
+    parte_ordenada = datos[:cantidad_ordenada]
+    parte_ordenada.reverse()
+
+    parte_nueva = datos[cantidad_ordenada:]
+    rng.shuffle(parte_nueva)
+
+    return parte_ordenada + parte_nueva
  
  
 def generar_inverso(n: int) -> list[int]:
@@ -41,3 +58,4 @@ def generar_inverso(n: int) -> list[int]:
         inverso al que el algoritmo debe producir.
     """
     # TODO: implemente el escenario C.
+    return list(range(1, n + 1))
