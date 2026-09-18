@@ -21,5 +21,27 @@ Una segunda consecuencia se genera cuando a las 6:00 a. m. la lista se encuentra
 
 Lo anterior plantea una tensión fundamental en la plataforma Tamiza, ya que el orden no representa únicamente una tarea técnica, porque el resultado define a quién se llama primero. Por esta razón, el planteamiento de un nuevo algoritmo tiene una responsabilidad adicional. No es suficiente con que los registros queden ordenados; la lista debe quedar correctamente ordenada y disponible dentro de la ventana establecida de tiempo para que esta prioridad pueda cumplirse adecuadamente.
 
+## Parte 3
+
+## Parte 3.1 Explicación 
+Para esta sección, se dará una breve explicación de los casos posibles, además de la elección de uno de estos para el caso en el que el algoritmo de Tamiza entra en producción. 
+
+- Mejor caso:  Este ocurre cuando, para un tamaño fijo n, el arreglo se encuentra ordenado según el orden que necesita producir insertion sort. Para este caso, la condición del ciclo while resulta falsa desde la primera comparación entre elementos, por lo que no necesita realizar desplazamientos.
+
+- Peor caso: En este caso, el arreglo está ordenado exactamente al contrario del orden requerido, para un tamaño fijo de n. Además, cada uno de sus elementos debe desplazarse a través de todos los elementos que ya están ordenados a su izquierda, lo que requiere una mayor cantidad de comparaciones y desplazamientos.
+
+- Caso promedio: Corresponde al comportamiento promedio de insertion sort sobre un conjunto de entradas de tamaño fijo n. Para este tipo de entradas, se espera que cada elemento deba desplazarse aproximadamente hasta la mitad de la parte que ya está ordenada.
+
+- Caso para producción: Teniendo en cuenta que el aplicativo de Tamiza tiene una ventana estricta de cuatro horas, es fundamental prestar atención al peor caso, ya que permite comprobar el comportamiento del algoritmo ante una entrada válida que exija la mayor cantidad de trabajo. Si en ese escenario el algoritmo tarda más de cuatro horas y supera la ventana de 2:00 a. m. a 6:00 a. m., existe el riesgo de que el proceso no esté disponible en el tiempo acordado.
+
+El caso de análisis que representa cada escenario de Tamiza para insertion sort es:
+
+- Escenario A: Representa los registros que llegan mediante las cargas de la plataforma web sin un orden específico. Al no existir un orden previo entre los índices de riesgo, se espera que el algoritmo realice una cantidad intermedia de comparaciones y desplazamientos. Por esta razón, se considera que este escenario se aproxima al caso promedio.
+
+- Escenario B: Representa la situación en la que la mayor parte de los registros conserva el orden de la lista del día anterior y solamente se agregan nuevos registros al final. Debido a que insertion sort funciona de manera favorable cuando los datos se encuentran ordenados o casi ordenados, se espera que este sea el escenario mas favorable de los tres y que requiera menos comparaciones y desplazamientos.
+
+- Escenario C: Representa el caso en que los registros están ordenados exactamente al contrario del orden que Tamiza necesita para generar la lista de llamadas. En esta situación, los elementos deben desplazarse a través de gran parte de los elementos que ya se encuentran ordenados, por lo que se espera la mayor cantidad de comparaciones y desplazamientos. Por esta razón, se predice que este escenario corresponde al peor caso.
+
+
 
 
