@@ -58,6 +58,93 @@ Estos resultados experimentales coinciden con las predicciones realizadas, donde
 ### Gráfica: Tiempo vs Tamaño de Entrada
 ![image alt](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/graficas/parte3_tiempos.png)
 
+## Parte 4
+
+## Parte 4.1 Cálculo teórico
+
+Para el análisis de merge sort, se parte de la siguiente recurrencia: 
+
+T(n) = 2T(n/2) + Θ(n)
+
+La cual representa el trabajo realizado por el algoritmo sobre una entrada de tamaño (n).En primer lugar, merge sort divide el problema original en dos subproblemas (2T(n/2)). Cada uno de estos tiene aproximadamente la mitad del tamaño de la entrada original (n/2).
+
+Luego de ordenar las dos mitades de forma recursiva, el algoritmo debe combinarlas mediante la operación merge. Esta recorre los elementos de ambas partes para constituir una única lista ordenada. Teniendo en cuenta que como conjunto se deben procesar aproximadamente los (n) elementos, el costo de esta combinación es lineal, representado por Θ(n).
+
+Para resolverla se hace la elección del método maestro, ya que la recurrencia tiene directamente la forma general:
+
+T(n)=aT(n/b)+f(n)
+
+Para nuestro caso:
+- a= 2 
+- b=2
+
+Además, el costo de combinar las dos mitades corresponde a f(n)=Θ(n).
+
+Se compara el costo de dividir recursivamente el problema con el costo de combinar los resultados, por lo tanto, se realiza la sustitución de los valores obtenidos.
+
+n^(log_b(a)) = n^(log_2(2)) = n^1=n
+
+Por lo cual, la función que se debe comparar es:
+f(n)=Θ(n) con n^(log_b(a)) = n
+
+Ambas tienen el mismo orden de crecimiento ya que f(n)=Θ(n) = Θ(n^(log_b(a))), por esta razón, la recurrencia corresponde al caso dos del método maestro, este establece que cuando f(n) tiene el mismo orden que n^(log_b(a)), la solución a la recurrencia es:
+
+ T(n) = Θ(n log n)
+
+Esto significa que el costo de dividir el problema y combinas las soluciones a lo largo de los niveles de la recursión produce un crecimiento de (n log n).
+
+### Cálculo de cota de Insertion Sort
+Para realizar el calculo de la cota de insertion sort, se debe analizar cuantas veces puede ejecutarse cada línea de la implementación.
+
+    arreglo = datos.copy()
+    comparaciones = 0
+
+    for i in range(1, len(arreglo)):
+        clave = arreglo[i]
+        j = i - 1
+
+        while j >= 0:
+            comparaciones += 1
+
+            if arreglo[j] >= clave:
+                break
+
+            arreglo[j + 1] = arreglo[j]
+            j -= 1
+
+        arreglo[j + 1] = clave
+
+    return arreglo, comparaciones 
+
+Para una entrada de tamaño (n), las instrucciones que están fuera del ciclo while se ejecutan una cantidad lineal de veces. La diferencia entre los casos aparece principalmente en el comportamiento del ciclo interno.
+
+| Instrucción | Mejor caso | Caso promedio | Peor caso |
+|---|---:|---:|---:|
+| `arreglo = datos.copy()` | 1 | 1 | 1 |
+| `comparaciones = 0` | 1 | 1 | 1 |
+| `for i in range(1, len(arreglo))` | `n-1` | `n-1` | `n-1` |
+| `clave = arreglo[i]` | `n-1` | `n-1` | `n-1` |
+| `j = i - 1` | `n-1` | `n-1` | `n-1` |
+| `comparaciones += 1` | `n-1` | proporcional a `n²` | proporcional a `n²` |
+| `if arreglo[j] >= clave` | `n-1` | proporcional a `n²` | proporcional a `n²` |
+| `arreglo[j + 1] = arreglo[j]` | 0 | proporcional a `n²` | `n(n-1)/2` |
+| `j -= 1` | 0 | proporcional a `n²` | `n(n-1)/2` |
+| `arreglo[j + 1] = clave` | `n-1` | `n-1` | `n-1` |
+| `return arreglo, comparaciones` | 1 | 1 | 1 |
+
+En el mejor caso, los elementos ya están ordenados de mayor a menor. Por ello, en cada iteración del for la primera comparación permite salir del while mediante el break. Se realizan aproximadamente (n-1) comparaciones y no hay desplazamientos, por lo que el crecimiento es de Θ(n).
+
+En el peor caso, los elementos están ordenados de menor a mayor, que es el orden contrario al que necesita producir el algoritmo. Cada nuevo elemento debe desplazarse a través de todos los elementos que ya están ordenados a su izquierda. La cantidad de desplazamientos es de Θ(n^2).
+
+El caso promedio se encuentra entre ambos comportamientos. Los elementos no necesitan desplazarse siempre por toda la parte ordenada, pero sí realizan una cantidad de comparaciones y desplazamientos que crece cuadráticamente con (n). Por esta razón, su complejidad esperada también es de Θ(n^2).
+
+Finalmente la complejidad esperada de cada algoritmo en el mejor, el peor y el caso promedio es de:
+
+| Algoritmo | Mejor caso | Caso promedio | Peor caso |
+|---|---:|---:|---:|
+| Insertion sort | $\Theta(n)$ | $\Theta(n^2)$ | $\Theta(n^2)$ |
+| Merge sort | $\Theta(n\log n)$ | $\Theta(n\log n)$ | $\Theta(n\log n)$ |
+
 
 
 
