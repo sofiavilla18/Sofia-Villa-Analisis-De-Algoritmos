@@ -145,6 +145,19 @@ Finalmente la complejidad esperada de cada algoritmo en el mejor, el peor y el c
 | Insertion sort | $\Theta(n)$ | $\Theta(n^2)$ | $\Theta(n^2)$ |
 | Merge sort | $\Theta(n\log n)$ | $\Theta(n\log n)$ | $\Theta(n\log n)$ |
 
+## 4.2 Validación experimental
+### Gráfica: Tiempo vs Tamaño de Entrada
+![image alt](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/graficas/parte4_tiempo.png)
+
+A partir de la gráfica obtenida, se puede concluir que Merge Sort resulta más adecuado para Tamiza para los tamaños de entrada evaluados. Esto se observa en los diferentes tiempos de ejecución medidos. Aunque para tamaños pequeños ambos algoritmos presentan tiempos bajos y cercanos, a medida que aumenta el tamaño de entrada, la curva de Insertion Sort crece rápidamente, mientras que la curva de Merge Sort crece de manera mucho más lenta.
+
+Esto se puede observar claramente en los datos obtenidos. Para n = 6400, Insertion Sort tarda aproximadamente 0.806 segundos, mientras que Merge Sort tarda aproximadamente 0.012 segundos. Por lo tanto, al aumentar la cantidad de registros, la diferencia de tiempo entre ambos algoritmos se hace cada vez mayor. La curva de Insertion Sort presenta un crecimiento mucho más pronunciado, mientras que la de Merge Sort mantiene un crecimiento más gradual.
+
+Esta conclusión coincide con el análisis realizado en la parte 4.1. Insertion Sort tiene un costo promedio de Θ(n²), por lo que su tiempo de ejecución aumenta de forma cuadrática a medida que crece n. En cambio, Merge Sort tiene un costo de Θ(n log n), por lo que su crecimiento es menor y permite manejar tamaños de entrada más grandes de manera más eficiente.
+
+Para los tamaños pequeños, la diferencia entre las curvas es reducida porque ambos algoritmos requieren muy poco tiempo de ejecución y otros costos propios de la implementación pueden influir en la medición. Sin embargo, a medida que aumenta n, la diferencia asociada a sus complejidades se hace mucho más evidente.
+
+
 
 
 
