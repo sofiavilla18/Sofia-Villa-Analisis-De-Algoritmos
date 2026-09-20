@@ -4,6 +4,24 @@
 
 
 ## Intrucciones para reproducir el experimento
+Para reproducir correctamente el entorno del laboratorio, siga los siguientes pasos:
+
+1. Abra una terminal dentro de la carpeta lab1-fundamentos-complejidad-recurrencias y cree el entorno virtual:
+```bash
+    -  python -m venv venv
+    -  venv\Scripts\activate
+```
+2. Con el entorno virtual activado, instale las dependencias del proyecto mediante el archivo requirements.txt:
+```bash
+pip install -r requirements.txt
+```
+3. Finalmente, ejecute los experimentos correspondientes a las Partes 3 y 4:
+```bash
+    - python parte3_casos.py
+    - python parte4_complejidad.py
+```
+
+Estos comandos permiten configurar el entorno y ejecutar los experimentos necesarios para reproducir los resultados del laboratorio.
 
 ## Parte 1 — Respuesta argumentativa.
 Antes de realizar este proceso la secretaria de salud departamental debe priorizar el análisis del algoritmo a profundidad, debido a una pequeña distinción, que un algoritmo sea correcto y cumpla con su labor esperada no significa que sea viable para las condiciones actuales que presenta el sistema. La plataforma Tamiza es un ejemplo de esto, donde insertion sort es correcto por que lleva a cabo su función, la cual es ordenar los 1.200.000 registros correspondientes por índice de riesgo para generar la lista de llamadas, teniendo en cuenta la prioridad a pacientes con mayor riesgo. No obstante, el problema que se ha generando en la ultimas semanas con la aplicación a todo el departamento es que el proceso ya no alcanza a terminar en el tiempo establecido entre las 2:00 am y 6:00 am ocasionando hasta el uso de una lista parcial, no ordenada por riesgo. Por lo tanto, aunque el resultado sea el correcto cuando finaliza la ejecución, está incumpliendo la ventana máxima de cuatro horas establecida para completar el proceso.
@@ -27,8 +45,8 @@ Lo anterior plantea una tensión fundamental en la plataforma Tamiza, ya que el 
 ### Logíca implementada: [datos.py](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/datos.py)
 ### Datos utilizados: [parte3_casos.py](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/parte3_casos.py)
 
-## Parte 3.1 Explicación 
-Para esta sección, se dará una breve explicación de los casos posibles, además de la elección de uno de estos para el caso en el que el algoritmo de Tamiza entra en producción. 
+## Parte 3.1 — Explicación 
+Para esta sección, se dará una breve explicación de los casos posibles asociados a [insertion sort](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/algoritmos.py), además de la elección de uno de estos para el caso en el que el algoritmo de Tamiza entra en producción. 
 
 - Mejor caso:  Este ocurre cuando, para un tamaño fijo n, el arreglo se encuentra ordenado según el orden que necesita producir insertion sort. Para este caso, la condición del ciclo while resulta falsa desde la primera comparación entre elementos, por lo que no necesita realizar desplazamientos.
 
@@ -38,6 +56,8 @@ Para esta sección, se dará una breve explicación de los casos posibles, adem�
 
 - Caso para producción: Teniendo en cuenta que el aplicativo de Tamiza tiene una ventana estricta de cuatro horas, es fundamental prestar atención al peor caso, ya que permite comprobar el comportamiento del algoritmo ante una entrada válida que exija la mayor cantidad de trabajo. Si en ese escenario el algoritmo tarda más de cuatro horas y supera la ventana de 2:00 a. m. a 6:00 a. m., existe el riesgo de que el proceso no esté disponible en el tiempo acordado.
 
+La logíca de cada uno de estos casos se puede visualizar desde [datos.py](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/datos.py) 
+
 El caso de análisis que representa cada escenario de Tamiza para insertion sort es:
 
 - Escenario A: Representa los registros que llegan mediante las cargas de la plataforma web sin un orden específico. Al no existir un orden previo entre los índices de riesgo, se espera que el algoritmo realice una cantidad intermedia de comparaciones y desplazamientos. Por esta razón, se considera que este escenario se aproxima al caso promedio.
@@ -46,7 +66,7 @@ El caso de análisis que representa cada escenario de Tamiza para insertion sort
 
 - Escenario C: Representa el caso en que los registros están ordenados exactamente al contrario del orden que Tamiza necesita para generar la lista de llamadas. En esta situación, los elementos deben desplazarse a través de gran parte de los elementos que ya se encuentran ordenados, por lo que se espera la mayor cantidad de comparaciones y desplazamientos. Por esta razón, se predice que este escenario corresponde al peor caso.
 
-## Parte 3.2  Demostración experimental
+## Parte 3.2 — Demostración experimental
 
 Luego de realizar la demostración experimental, los resultados obtenidos fueron los siguientes: el escenario C fue el peor caso, ya que presentó el mayor número de comparaciones, con 20.476.800, y el mayor tiempo de ejecución, con 1.559084 s, para un n = 6400. Además, se observó que tanto el número de comparaciones como el tiempo de ejecución aumentaron a medida que crecía el tamaño de la entrada. Para el escenario B, este fue el mejor de los tres, puesto que obtuvo considerablemente menos comparaciones, con 813.455, y un menor tiempo de ejecución de 0.076926 s para n = 6400. Finalmente, el escenario A presentó un comportamiento intermedio, aproximándose al caso promedio, con 10.276.753 comparaciones y un tiempo de ejecución de 0.827344 s.
 
@@ -60,9 +80,13 @@ Estos resultados experimentales coinciden con las predicciones realizadas, donde
 
 ## Parte 4
 
-## Parte 4.1 Cálculo teórico
+### Algoritmo merge sort: [algoritmos.py](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/algoritmos.py)
+### Logíca implementada: [datos.py](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/datos.py)
+### Datos utilizados: [parte4_casos.py](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/parte4_complejidad.py)
 
-Para el análisis de merge sort, se parte de la siguiente recurrencia: 
+## Parte 4.1 — Cálculo teórico
+
+Para el análisis de merge sort ([algoritmos.py](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/algoritmos.py)), se parte de la siguiente recurrencia: 
 
 T(n) = 2T(n/2) + Θ(n)
 
@@ -145,7 +169,7 @@ Finalmente la complejidad esperada de cada algoritmo en el mejor, el peor y el c
 | Insertion sort | $\Theta(n)$ | $\Theta(n^2)$ | $\Theta(n^2)$ |
 | Merge sort | $\Theta(n\log n)$ | $\Theta(n\log n)$ | $\Theta(n\log n)$ |
 
-## 4.2 Validación experimental
+## 4.2 — Validación experimental
 ### Gráfica: Tiempo vs Tamaño de Entrada
 ![image alt](https://github.com/sofiavilla18/Sofia-Villa-Analisis-De-Algoritmos/blob/main/laboratorios/lab1-fundamentos-complejidad-recurrencias/graficas/parte4_tiempo.png)
 
@@ -156,6 +180,19 @@ Esto se puede observar claramente en los datos obtenidos. Para n = 6400, Inserti
 Esta conclusión coincide con el análisis realizado en la parte 4.1. Insertion Sort tiene un costo promedio de Θ(n²), por lo que su tiempo de ejecución aumenta de forma cuadrática a medida que crece n. En cambio, Merge Sort tiene un costo de Θ(n log n), por lo que su crecimiento es menor y permite manejar tamaños de entrada más grandes de manera más eficiente.
 
 Para los tamaños pequeños, la diferencia entre las curvas es reducida porque ambos algoritmos requieren muy poco tiempo de ejecución y otros costos propios de la implementación pueden influir en la medición. Sin embargo, a medida que aumenta n, la diferencia asociada a sus complejidades se hace mucho más evidente.
+
+## 4.3 — Concepto técnico a la Secretaría de Salud
+
+Para el aplicativo de Tamiza, se recomienda el uso del algoritmo de ordenamiento Merge Sort, manteniendo el criterio de una única implementación. La razón principal es la variabilidad del canal de entrada, ya que los registros pueden llegar con diferentes niveles de orden sin previo aviso. A pesar de que Insertion Sort presenta un buen comportamiento cuando la entrada está casi ordenada, como se observó en el escenario B, no es conveniente diseñar un proceso suponiendo que esta condición se mantendrá en el tiempo. Merge Sort ofrece entonces una solución más estable frente a cambios en la distribución de los datos y permite evitar el mantenimiento de varias implementaciones.
+
+Para estimar el comportamiento de este con los 1.200.000 registro de tamiza, se toma como referencia la medición realizada cuando n = 6400 en el escenario A. Insertion sort tardo 0.805644 s, mientras que merge tardo 0.012233 s, como se observa en la grafica de la parte 4.2. Para Insertion Sort se realiza una extrapolación proporcional a n², mientras que para Merge Sort se utiliza una extrapolación proporcional a n log n. Teniendo esto en cuenta, se estima un tiempo aproximado de 7.87 horas para insertion sort y de 3.66 segundos para merge sort. Estos valores son una estimación a partir de las mediciones realizadas y no una medición directa con los 1.200.000 registros, por lo que debe tratarse como una referencia para evaluar la viabilidad del proceso.
+
+En cuanto a la propuesta de duplicar la velocidad del servidor, es cierto que un hardware más rápido podría reducir el tiempo de ejecución de Insertion Sort. Sin embargo, esto no modifica la forma en que crece el trabajo que debe realizar el algoritmo cuando aumenta el tamaño de la entrada. Por lo tanto, una mejora en el hardware podría reducir temporalmente los tiempos de ejecución, pero no resolvería el problema de escalabilidad asociado con la complejidad del algoritmo.
+
+Esto se observa en los resultados de la Parte 4.2. Al pasar de n = 3200 a n = 6400, el tiempo de Insertion Sort aumentó de 0.228703 s a 0.805644 s, mientras que Merge Sort pasó de 0.005638 s a 0.012233 s. Aunque ambos tiempos aumentan al crecer la entrada, el incremento de Insertion Sort es considerablemente mayor, lo que coincide con la diferencia entre sus órdenes de crecimiento.
+
+Finalmente, se debe considerarse el costo de memoria de Merge Sort. A diferencia de Insertion Sort, su estrategia de “divide y vencerás” requiere memoria adicional para trabajar con las partes del arreglo. Este costo debe contemplarse al dimensionar los recursos del servidor. Sin embargo, frente a un flujo cuyo orden de entrada puede cambiar, esta consideración debe evaluarse junto con la necesidad de mantener un comportamiento de ejecución más predecible.
+
 
 
 
