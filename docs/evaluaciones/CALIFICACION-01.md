@@ -45,7 +45,7 @@
 **Lo que puede mejorar:**
 - En `algoritmos.py` quedó la línea `from pandas import merge`. No se usa (su propia función `merge` la reemplaza) y obliga a tener instalada una librería que no hace falta. Debe borrarla.
 - Las funciones de `parte3_casos.py` y `parte4_complejidad.py` no tienen *docstrings* y varias no tienen *type hints* completos.
-- Hay varios avisos de estilo PEP 8: espacios al final de línea, falta de líneas en blanco entre funciones y archivos sin salto de línea final. Quedaron además los comentarios `TODO` de la plantilla.
+- Hay varios avisos de estilo PEP 8, como la falta de líneas en blanco entre funciones. Quedaron además los comentarios `TODO` de la plantilla.
 
 ## 4. Calidad del análisis de las gráficas (16 / 20)
 **Lo que hizo bien:**
