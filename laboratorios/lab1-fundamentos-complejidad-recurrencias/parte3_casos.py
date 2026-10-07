@@ -12,6 +12,16 @@ TAMANOS = [100, 200, 400, 800, 1600, 3200, 6400]
 
 
 def medir_escenario(generador, n: int) -> tuple[float, int]:
+    """Mide el tiempo y las comparaciones de insertion sort.
+
+    Args:
+        generador: función que genera los datos del escenario.
+        n: tamaño de la entrada.
+
+    Returns:
+        Una tupla con el tiempo de ejecución en segundos y el número
+        de comparaciones realizadas.
+    """
     datos = generador(n)
 
     inicio = time.perf_counter()
@@ -23,6 +33,11 @@ def medir_escenario(generador, n: int) -> tuple[float, int]:
 
 
 def graficar_comparaciones(resultados):
+    """Genera la gráfica del número de comparaciones por escenario.
+
+    Args:
+        resultados: resultados del experimento organizados por escenario.
+    """
     plt.figure()
 
     for escenario, datos in resultados.items():
@@ -47,6 +62,11 @@ def graficar_comparaciones(resultados):
 
 
 def graficar_tiempos(resultados):
+    """Genera la gráfica del tiempo de ejecución por escenario.
+
+    Args:
+        resultados: resultados del experimento organizados por escenario.
+    """
     plt.figure()
 
     for escenario, datos in resultados.items():
@@ -66,11 +86,12 @@ def graficar_tiempos(resultados):
     plt.legend()
     plt.grid(True)
 
-    plt.savefig("graficas/parte3_tiempos.png")
+    plt.savefig("graficas/parte3_tiempo.png")
     plt.close()
 
 
 def main() -> None:
+    """Ejecuta el experimento para los tres escenarios."""
     resultados = {"A": [], "B": [], "C": []}
 
     for n in TAMANOS:

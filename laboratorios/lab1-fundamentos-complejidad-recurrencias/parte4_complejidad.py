@@ -9,6 +9,16 @@ TAMANOS = [100, 200, 400, 800, 1600, 3200, 6400]
 
 
 def medir_algoritmo(algoritmo, datos: list[int]) -> tuple[float, int]:
+    """Mide el tiempo y las comparaciones de un algoritmo de ordenamiento.
+
+    Args:
+        algoritmo: función de ordenamiento que se desea medir.
+        datos: lista de datos que se utilizará como entrada.
+
+    Returns:
+        Una tupla con el tiempo de ejecución en segundos y el número
+        de comparaciones realizadas.
+    """
     inicio = time.perf_counter()
     _, comparaciones = algoritmo(datos)
     fin = time.perf_counter()
@@ -17,6 +27,11 @@ def medir_algoritmo(algoritmo, datos: list[int]) -> tuple[float, int]:
 
 
 def graficar_tiempos(resultados) -> None:
+    """Genera una gráfica con los tiempos de ambos algoritmos.
+
+    Args:
+        resultados: resultados del experimento para cada tamaño de entrada.
+    """
     n = [fila[0] for fila in resultados]
     tiempos_insertion = [fila[1] for fila in resultados]
     tiempos_merge = [fila[3] for fila in resultados]
@@ -48,6 +63,7 @@ def graficar_tiempos(resultados) -> None:
 
 
 def main() -> None:
+    """Ejecuta el experimento y genera la gráfica de tiempos."""
     resultados = []
 
     for n in TAMANOS:

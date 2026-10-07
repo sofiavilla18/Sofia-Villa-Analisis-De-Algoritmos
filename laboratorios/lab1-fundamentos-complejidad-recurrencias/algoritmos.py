@@ -1,6 +1,6 @@
 """Algoritmos de ordenamiento instrumentados para el Laboratorio 1."""
  
-from pandas import merge
+
 
 
 def insertion_sort(datos: list[int]) -> tuple[list[int], int]:
@@ -15,9 +15,6 @@ def insertion_sort(datos: list[int]) -> tuple[list[int], int]:
         Una tupla con la lista ordenada y el numero total de
         comparaciones entre elementos realizadas durante el proceso.
     """
-    # TODO: implemente el algoritmo contando cada comparacion
-    # entre dos elementos de la lista.
-    
     arreglo = datos.copy()
     comparaciones = 0
 
@@ -37,6 +34,7 @@ def insertion_sort(datos: list[int]) -> tuple[list[int], int]:
         arreglo[j + 1] = clave
 
     return arreglo, comparaciones   
+
 
 def merge_sort(datos: list[int]) -> tuple[list[int], int]:
     """Ordena una lista de indices de riesgo con el metodo de mezcla.
@@ -65,7 +63,8 @@ def merge_sort(datos: list[int]) -> tuple[list[int], int]:
 
     return resultado, comparaciones_totales
 
-def merge(izquierda: list[int],derecha: list[int]) -> tuple[list[int], int]:
+
+def merge(izquierda: list[int], derecha: list[int]) -> tuple[list[int], int]:
     """Combina dos listas ordenadas de mayor a menor.
 
     Compara los elementos al frente de ambas listas y agrega
