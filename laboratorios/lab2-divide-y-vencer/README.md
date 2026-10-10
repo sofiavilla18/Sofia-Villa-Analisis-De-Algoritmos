@@ -84,3 +84,7 @@ Estos resultados se aproximan a lo esperado teoricamente, donde para Θ(n²), el
 ### 3. Tamaños pequeños
 
 En las mediciones, el algoritmo de divide y vencerás empieza a ganar a partir de n = 50, con un tiempo de 0,00014590 segundos frente a 0,00016590 segundos de fuerza bruta. Para n = 10, ocurre lo contrario: divide y vencerás tarda 0,00007710 segundos, mientras que fuerza bruta tarda 0,00001730 segundos. Esta diferencia inicial se debe al costo adicional de las llamadas recursivas, que influye más en entradas pequeñas; al crecer (n), la complejidad cuadrática de fuerza bruta hace que divide y vencerás sea más eficiente.
+
+### 4 .¿Cuándo conviene dividir?
+
+Para este problema, hallar el máximo de un arreglo de n números, dividirlo en dos mitades no mejora la eficiencia frente a recorrerlo una única vez. Con divide y vencerás, se resuelven dos subproblemas de tamaño n/2 y se comparan sus máximos, con un costo de combinación de Θ(1). La recurrencia resultante es T(n) = 2T(n/2) + Θ(1), cuya solución es Θ(n), igual que en un recorrido directo. Por tanto, resulta más conveniente recorrer el arreglo una sola vez, ya que se obtiene la misma complejidad sin añadir llamadas recursivas.
