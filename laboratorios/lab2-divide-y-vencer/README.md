@@ -81,3 +81,6 @@ En la gráfica se visualiza que al aumentar el tamaño entrada (n), el algoritmo
 
 Estos resultados se aproximan a lo esperado teoricamente, donde para Θ(n²), el tiempo se multiplca aproximadamente por 4 al duplicar n, mientras que para Θ(n log n), el factor es cercano a 2. Donde las diferencias se deben posiblemente a condiciones de ejecucion y de posibles variaciones en el tiempo medido.
 
+### 3. Tamaños pequeños
+
+En las mediciones, el algoritmo de divide y vencerás empieza a ganar a partir de n = 50, con un tiempo de 0,00014590 segundos frente a 0,00016590 segundos de fuerza bruta. Para n = 10, ocurre lo contrario: divide y vencerás tarda 0,00007710 segundos, mientras que fuerza bruta tarda 0,00001730 segundos. Esta diferencia inicial se debe al costo adicional de las llamadas recursivas, que influye más en entradas pequeñas; al crecer (n), la complejidad cuadrática de fuerza bruta hace que divide y vencerás sea más eficiente.
