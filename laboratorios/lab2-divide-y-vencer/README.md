@@ -88,3 +88,11 @@ En las mediciones, el algoritmo de divide y vencerás empieza a ganar a partir d
 ### 4 .¿Cuándo conviene dividir?
 
 Para este problema, hallar el máximo de un arreglo de n números, dividirlo en dos mitades no mejora la eficiencia frente a recorrerlo una única vez. Con divide y vencerás, se resuelven dos subproblemas de tamaño n/2 y se comparan sus máximos, con un costo de combinación de Θ(1). La recurrencia resultante es T(n) = 2T(n/2) + Θ(1), cuya solución es Θ(n), igual que en un recorrido directo. Por tanto, resulta más conveniente recorrer el arreglo una sola vez, ya que se obtiene la misma complejidad sin añadir llamadas recursivas.
+
+### 5. Concepto para la gerente
+
+Para la cooperativa, se recomienda el algoritmo de divide y vencerás, ya que, como se observa en la gráfica, su tiempo de ejecución crece más lentamente que el de fuerza bruta a medida que aumenta el tamaño de entrada. Esto se debe a que su complejidad es Θ(n log n), mientras que la de fuerza bruta es Θ(n²), cuyo crecimiento es cuadrático y resulta más costoso para procesar grandes cantidades de registros.
+
+A partir de la medición para n = 8000, se estima que, para una serie de 1.000.000 de registros, fuerza bruta tardaría aproximadamente 12,5 horas, al escalar su tiempo según el crecimiento cuadrático: 2,886938 × (1.000.000 / 8.000)². Mientras que para divide y vencerás, la estimación es de aproximadamente 3,2 segundos, considerando el crecimiento (n\log n): 0,016569 × [ (1.000.000 × log₂(1.000.000)) / (8.000 × log₂(8.000)) ].
+
+Estos valores son estimaciones teóricas, no tiempos comprobados para un millón de registros. El tiempo real puede variar según las condiciones de ejecución como lo es la capacidad del hardware, la carga de trabajo del equipo y los recuersos disponibles durante la ejecución. 
