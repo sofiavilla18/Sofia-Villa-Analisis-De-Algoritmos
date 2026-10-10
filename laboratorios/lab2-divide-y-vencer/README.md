@@ -54,5 +54,16 @@ Para ello, se utilizaron instrucciones assert, que comprueban si la suma obtenid
 
 6. Listas aleatorias: se generaron 20 listas de longitudes entre 1 y 30, con valores enteros entre -100 y 100. Se fijó la semilla aleatoria en 42 para que las pruebas puedan reproducirse con los mismos datos. En cada lista se compararon las sumas máximas obtenidas por ambos algoritmos, comprobando que coincidan.
 
+## Parte 2 — Gráfica "Tiempo vs n" y medición
+### Medición y gráfica: [medicion.py](medicion.py)
+
+![Tiempo parte 2](graficas/tiempo_vs_n.png)
+
+Para analizar el comportamiento de los algoritmos, se midió su tiempo de ejecución mediante listas de diferentes tamaños, entre ellos 10, 50, 100, 500, 1000, 4000 y 8000 elementos. En donde cada lista se generó con valores enteros aleatorios entre -100 y 100 mediante la función random.randint(-100, 100). Además, se hizo uso de una semilla fija 42 utilizando random.seed(SEMILLA), de modo que los datos se puedan generar nuevamente en futuras ejecuciones. 
+
+El experimento recorre los tamaños mediante un ciclo for. Para cada lista, primero se ejecutan ambos algoritmos y se verifica mediante un assert que sus resultados coincidan. Después se mide el tiempo de ejecución de cada uno utilizando time.perf_counter(), registrando el tiempo antes y después de una única llamada al algoritmo. Los tiempos obtenidos se almacenan para posteriormente generar la gráfica de tiempo de ejecución en función del tamaño de entrada n.
+
+Por último, cada medición se realizó una sola vez por algoritmo y por tamaño de entrada, sin repetir las ejecuciones para calcular un promedio.
+
 
 
