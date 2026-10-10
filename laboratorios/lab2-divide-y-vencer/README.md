@@ -75,4 +75,9 @@ Para resolver esta recurrencia se hace uso del metodo maestro, identificando las
 
 Como f(n) = Θ(n) tienen el mismo orden que n^(log_b(a)), se cumple el caso 2 del método maestro, por lo que T(n) = Θ(n log n). Mientras que en el algoritmo de fuerza bruta se acumula la suma a medida que avanza, de tal modo que para una lista de tamaño (n), examina (n(n+1)/2) subarreglos contiguos. Como el término dominante de esta expresión es n², su complejidad es Θ(n²).
 
+### 2. Lo medido contra lo esperado
+
+En la gráfica se visualiza que al aumentar el tamaño entrada (n), el algoritmo de fuerza bruta presenta un crecimiento más rapido que el de Divide y venceras. Un claro ejemplo, se visualiza con los tamaños de n = 4000 y n = 8000, donde se duplica la entrada. En fuerza bruta, el tiempo pasa de 0,751966 a 2,886938 segundos, multiplicándose por 3,84. Mientras que en divide y venceras, pasó de 0,010334 a 0,016569 segundos, multiplicándose por 1,60.
+
+Estos resultados se aproximan a lo esperado teoricamente, donde para Θ(n²), el tiempo se multiplca aproximadamente por 4 al duplicar n, mientras que para Θ(n log n), el factor es cercano a 2. Donde las diferencias se deben posiblemente a condiciones de ejecucion y de posibles variaciones en el tiempo medido.
 
