@@ -65,5 +65,14 @@ El experimento recorre los tamaños mediante un ciclo for. Para cada lista, prim
 
 Por último, cada medición se realizó una sola vez por algoritmo y por tamaño de entrada, sin repetir las ejecuciones para calcular un promedio.
 
+## Parte 3 — Análisis
+
+### 1. Recurrencia
+
+La función subarreglo_maximo se encarga de dividir la lista en dos mitades, buscando el subarreglo de mayor suma en tres posibilidades: completamente en la mitad izquierda, en la derecha o cruzando el punto medio.Generando dos subproblemas de un tamaño aproximado de n/2, cada uno con un costo de T(n/2), luego calcula el mejor subarreglo cruzado, cuyo costo es de Θ(n), con una recurrencia de: T(n) = 2T(n/2) + Θ(n). 
+
+Para resolver esta recurrencia se hace uso del metodo maestro, identificando las siguientes variables, a=2, b=2 y f(n) = Θ(n). Luego calculamos n^(log_b(a)) = n^(log_2(2)) = n
+
+Como f(n) = Θ(n) tienen el mismo orden que n^(log_b(a)), se cumple el caso 2 del método maestro, por lo que T(n) = Θ(n log n). Mientras que en el algoritmo de fuerza bruta se acumula la suma a medida que avanza, de tal modo que para una lista de tamaño (n), examina (n(n+1)/2) subarreglos contiguos. Como el término dominante de esta expresión es n², su complejidad es Θ(n²).
 
 
