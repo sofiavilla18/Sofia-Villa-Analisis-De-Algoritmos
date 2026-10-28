@@ -85,3 +85,11 @@ Se midió el tiempo medio de búsqueda de 200 guías inexistentes durante cinco 
 La siguiente gráfica muestra la variación del tiempo medio de búsqueda según el factor de carga real de cada tabla.
 
 ![Tiempo vs alfa 2](graficas/tiempo_vs_alfa.png)
+
+## Parte 3 — Análisis.
+
+### 1. Costo teórico
+
+En una lista enlazada, la búsqueda de una guía inexistente tiene un costo de Θ(n), porque es necesario recorrer los nodos uno por uno desde la cabeza hasta llegar al final. Como la guía no se encuentra, se deben revisar los (n) nodos antes de concluir que no existe. Por tanto, el tiempo de búsqueda crece proporcionalmente al número de guías almacenadas.
+
+En una tabla hash con encadenamiento, la guía se asigna a una casilla mediante la función hash y la búsqueda se realiza únicamente en la lista enlazada de esa casilla. Su costo promedio es Θ(1 + α), donde (α = n / m) es el factor de carga, con (n) guías almacenadas y (m) casillas. Este resultado supone que la función hash distribuye las guías de manera aproximadamente uniforme entre las casillas. Si todas las guías cayeran en una misma casilla, la lista de esa casilla tendría (n) elementos y la búsqueda de una guía inexistente volvería a costar Θ(n).
