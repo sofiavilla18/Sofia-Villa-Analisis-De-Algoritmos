@@ -48,5 +48,40 @@ Finalmente, se realizaron veinte colecciones aleatorias para comparar los result
 ## Parte 2 — Medir y graficar
 ### Código de medición: [medicion.py](medicion.py)
 
+### Experimento A — Lista enlazada frente a tabla hash
+
+Para este experimento se midió el tiempo promedio de búsqueda de guías inexistentes en la lista enlazada y en la tabla hash para seis tamaños de entrada: 100, 500, 1.000, 5.000, 20.000 y 50.000 guías. Para cada tamaño se utilizó un número de casillas m primo y cercano a n / 2, con el propósito de mantener el factor de carga alrededor de 2.
+
+En cada medición se realizaron 200 búsquedas de guías inexistentes, durante cinco repeticiones. Además, se calculó  el tiempo promedio por búsqueda en segundos, utilizando time.perf_counter() para cronometrar únicamente las consultas. Las guías almacenadas se generaron con la semilla 2026, mientras que las guías inexistentes se generaron con la semilla 7. Para cada tamaño se utilizaron las mismas consultas en ambas estructuras.
+
+Los parámetros y resultados obtenidos fueron los siguientes:
+
+| Número de guías (n) | Casillas (m) | Factor de carga (α) | Lista (s/búsqueda) | Tabla hash (s/búsqueda) |
+|---:|---:|---:|---:|---:|
+| 100 | 53 | 1.887 | 0.00000298 | 0.00000018 |
+| 500 | 251 | 1.992 | 0.00001401 | 0.00000020 |
+| 1,000 | 503 | 1.988 | 0.00003320 | 0.00000022 |
+| 5,000 | 2,503 | 1.998 | 0.00015511 | 0.00000025 |
+| 20,000 | 10,007 | 1.999 | 0.00063441 | 0.00000027 |
+| 50,000 | 25,013 | 1.999 | 0.00181279 | 0.00000027 |
+
+La siguiente gráfica compara los tiempos medios de búsqueda de ambas estructuras en los mismos ejes.
+
 ![Lista vs tabla parte 2](graficas/lista_vs_tabla.png)
+
+### Experimento B — Efecto del factor de carga
+
+Para este experimento se mantuvo fijo el número de guías en n = 20.000 y se construyeron tablas hash con diferentes cantidades de casillas. Se utilizaron cuatro factores de carga objetivo: 0,5; 1; 4 y 10. Como m debía ser primo, se registró el factor de carga real obtenido en cada caso.
+
+Se midió el tiempo medio de búsqueda de 200 guías inexistentes durante cinco repeticiones, utilizando las mismas consultas para las cuatro tablas. El cronometraje se realizó con time.perf_counter() y los resultados se expresaron en segundos por búsqueda.
+
+| Factor de carga objetivo | Casillas (m) | Factor de carga real (α) | Tiempo medio (s/búsqueda) |
+|---:|---:|---:|---:|
+| 0.5 | 40,009 | 0.4999 | 0.00000021 |
+| 1 | 20,011 | 0.9995 | 0.00000022 |
+| 4 | 5,003 | 3.9976 | 0.00000032 |
+| 10 | 2,003 | 9.9850 | 0.00000052 |
+
+La siguiente gráfica muestra la variación del tiempo medio de búsqueda según el factor de carga real de cada tabla.
+
 ![Tiempo vs alfa 2](graficas/tiempo_vs_alfa.png)
