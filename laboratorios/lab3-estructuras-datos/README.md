@@ -93,3 +93,11 @@ La siguiente gráfica muestra la variación del tiempo medio de búsqueda según
 En una lista enlazada, la búsqueda de una guía inexistente tiene un costo de Θ(n), porque es necesario recorrer los nodos uno por uno desde la cabeza hasta llegar al final. Como la guía no se encuentra, se deben revisar los (n) nodos antes de concluir que no existe. Por tanto, el tiempo de búsqueda crece proporcionalmente al número de guías almacenadas.
 
 En una tabla hash con encadenamiento, la guía se asigna a una casilla mediante la función hash y la búsqueda se realiza únicamente en la lista enlazada de esa casilla. Su costo promedio es Θ(1 + α), donde (α = n / m) es el factor de carga, con (n) guías almacenadas y (m) casillas. Este resultado supone que la función hash distribuye las guías de manera aproximadamente uniforme entre las casillas. Si todas las guías cayeran en una misma casilla, la lista de esa casilla tendría (n) elementos y la búsqueda de una guía inexistente volvería a costar Θ(n).
+
+### Lo medido contra lo esperado.
+
+En la primera gráfica, al comparar la lista enlazada con n = 20.000 y n = 50.000, el tiempo pasó de 0,00063441 a 0,00181279 segundos por búsqueda, lo que equivale a una multiplicacion aproximada de 2,86, mientras que el número de guías aumentó 2,5 veces. Este resultado se aproxima al crecimiento lineal esperado de Θ(n). En la tabla hash, el tiempo se mantuvo en 0,00000027 segundos por búsqueda para ambos tamaños, lo que concuerda con un comportamiento aproximadamente constante de Θ(1), dado que el factor de carga se mantuvo cercano a 2.
+
+En la segunda gráfica, al aumentar el factor de carga real de aproximadamente 0,5 a 10, el tiempo medio de búsqueda pasó de 0,00000021 a 0,00000052 segundos, un aumento aproximado de 2,48 veces. La tendencia creciente es coherente con Θ(1 + α), aunque el aumento no es proporcional al factor de carga. Esto puede explicarse, en parte, por la variabilidad del cronometraje, dado que los tiempos medidos son muy pequeños.
+
+
