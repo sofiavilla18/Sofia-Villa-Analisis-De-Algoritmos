@@ -122,6 +122,15 @@ En cambio, un árbol binario de búsqueda (BST) permite recorrer las claves en o
 
 Si las 400.000 guías llegan ordenadas y se insertan una a una en un BST común, el árbol puede degenerarse en una cadena. Su altura sería aproximadamente de 400.000 niveles y, en el peor caso, una búsqueda podría requerir cerca de 400.000 comparaciones. En un árbol equilibrado, la altura sería aproximadamente log₂(400.000) ≈ 19 niveles, lo que reduce considerablemente las comparaciones.
 
+### Concepto para la jefa de operaciones
+
+Se recomienda combinar una tabla hash para buscar guías específicas y un árbol binario equilibrado para consultar rangos. La tabla hash ofrece búsquedas puntuales promedio Θ(1) con un factor de carga controlado y una distribución adecuada; el árbol permite recorrer las guías ordenadamente.
+
+Para cinco millones de envíos, se estima que una búsqueda fallida en la lista enlazada tardaría 0,18 segundos. Se parte de los 0,00181279 segundos medidos con 50.000 guías y se multiplica por 100, pues el tamaño aumenta 100 veces y la curva presenta crecimiento lineal, coherente con Θ(n).
+
+Para la tabla hash, se estima un tiempo cercano a 0,00000027 segundos por búsqueda, si el factor de carga se mantiene alrededor de 2. La curva mostró tiempos casi constantes al aumentar las guías, coherentes con Θ(1) bajo esas condiciones.
+
+Ambos valores son estimaciones; el tiempo real dependerá del equipo, la distribución de las claves y el factor de carga.
 
 
 
