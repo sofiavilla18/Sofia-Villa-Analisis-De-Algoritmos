@@ -100,4 +100,22 @@ En la primera gráfica, al comparar la lista enlazada con n = 20.000 y n = 50.00
 
 En la segunda gráfica, al aumentar el factor de carga real de aproximadamente 0,5 a 10, el tiempo medio de búsqueda pasó de 0,00000021 a 0,00000052 segundos, un aumento aproximado de 2,48 veces. La tendencia creciente es coherente con Θ(1 + α), aunque el aumento no es proporcional al factor de carga. Esto puede explicarse, en parte, por la variabilidad del cronometraje, dado que los tiempos medidos son muy pequeños.
 
+### Explique las colisiones.
+
+### 3. Colisiones en una tabla hash
+
+Una colisión ocurre cuando dos o más claves diferentes obtienen el mismo índice al aplicar la función hash. Esto puede suceder incluso cuando hay más casillas que claves, porque la función hash no garantiza que cada clave tenga una posición exclusiva; simplemente asigna las claves a un conjunto limitado de casillas.
+
+Por ejemplo, con `m = 7` casillas y la función `h(k) = k mod 7`, las guías 10, 24 y 17 generan el mismo índice:
+
+- `h(10) = 10 mod 7 = 3`
+- `h(24) = 24 mod 7 = 3`
+- `h(17) = 17 mod 7 = 3`
+
+Por tanto, las tres guías deben almacenarse en la casilla 3. En la implementación se hace uso del encadenamiento, que consiste en guardar las claves que colisionan en una lista enlazada asociada a la misma casilla. Su ventaja es que permite almacenar varias claves sin buscar otra posición libre en la tabla. Sin embargo, si se acumulan muchas claves en una casilla, la búsqueda debe recorrer una lista más larga y su costo puede aumentar.
+
+Otra alternativa es el direccionamiento abierto, en el que todas las claves se almacenan directamente en el arreglo de la tabla y, cuando ocurre una colisión, se buscan otras posiciones disponibles mediante una secuencia de sondeo. Esto evita las listas enlazadas adicionales, pero el rendimiento puede deteriorarse cuando la tabla está muy llena, y las operaciones de inserción y eliminación requieren un manejo cuidadoso de las posiciones ocupadas.
+
+
+
 
