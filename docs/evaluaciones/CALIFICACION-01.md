@@ -68,7 +68,7 @@ Muy buen trabajo: su informe está completo, sus cálculos son correctos y sus c
 - En las instrucciones de reproducción, los comandos aparecen con un guion al inicio dentro de los bloques de código, así que no se pueden copiar y pegar tal cual.
 
 ## ¿El código funciona?
-Sí. Los dos algoritmos ordenan bien en mis pruebas, y los dos scripts corren sin errores y generan las gráficas.
+Sí. Los dos algoritmos ordenan bien, y los dos scripts corren sin errores y generan las gráficas.
 
 ## Para el próximo laboratorio
 - Repita cada medición varias veces, use el promedio y diga en el informe cómo midió.
